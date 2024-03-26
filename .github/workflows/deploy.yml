@@ -1,30 +1,20 @@
-name: Deploy to GitHub Pages
+ 
+ name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches:
-      - main
+ on:
+   push:
+     branches:
+       - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Jekyll
-        uses: actions/setup-ruby@v1
-        #with:
-          #ruby-version: '3.3.0'
-
-      - name: Build Jekyll Site
-        run: |
-          gem install jekyll bundler
-          bundle install
-          bundle exec jekyll build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+ jobs:
+   deploy:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v2
+       - name: Deploy
+         uses: peaceiris/actions-gh-pages@v3
+         with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
+           publish_dir: ./_site # the directory where your HTML file is located
+ 
