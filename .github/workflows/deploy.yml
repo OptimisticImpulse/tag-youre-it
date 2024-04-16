@@ -16,5 +16,5 @@
          uses: peaceiris/actions-gh-pages@v3
          with:
            github_token: ${{ secrets.GITHUB_TOKEN }}
-           publish_dir: ./_site # the directory where your HTML file is located
- 
+           publish_dir: ./ # the directory where your HTML file is located
+
